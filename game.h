@@ -6,20 +6,36 @@
 #include "smth.h"
 #include "consts.h"
 
+GtkBuilder* builder;
+
+const char *rWord = "";
+const char *wHint = "";
+gint score = 0;
+gint tempScore = 0;
+
 struct Game
 {
     GtkWidget *word_label;
     GtkWidget *score_label;
     GtkWidget *win_label;
-    GtkWidget* fail_label;
+    GtkWidget *fail_label;
     GtkWidget *entry;
 
-    const char *rWord = "";
-    const char *wHint = "";
-    gint score = 0;
-    gint tempScore = 0;
+    Game()
+    {
+        word_label = GTK_WIDGET(gtk_builder_get_object(builder, "word_label"));
+        score_label = GTK_WIDGET(gtk_builder_get_object(builder, "score_label"));
+        win_label = GTK_WIDGET(gtk_builder_get_object(builder, "win_fail_label"));
+        fail_label = GTK_WIDGET(gtk_builder_get_object(builder, "win_fail_label"));
+        entry = GTK_WIDGET(gtk_builder_get_object(builder, "entry"));
+    }
 
-    void set_word(GtkBuilder *builder, std::string &jumble)
+    /*const char *rWord = "";
+    const char *wHint = "";
+    gint *score = 0;
+    gint *tempScore = 0;*/
+
+    void set_word(std::string &jumble)
     {
         gchar fullWordText[255] = "";
         const gchar *halfText = "The word is: ";
@@ -28,11 +44,10 @@ struct Game
         strcat(fullWordText, halfText);
         strcat(fullWordText, jumbl);
 
-        word_label = GTK_WIDGET(gtk_builder_get_object(builder, "word_label"));
-        gtk_label_set_text(GTK_LABEL(word_label), fullWordText);
+        gtk_label_set_text(GTK_LABEL(this->word_label), fullWordText);
     }
 
-    void set_score(GtkBuilder *builder)
+    void set_score()
     {
         gchar fullScoreText[255] = "";
         const gchar *halfText = "Score: ";
@@ -46,29 +61,25 @@ struct Game
         strcat(fullScoreText, halfText);
         strcat(fullScoreText, scr);
 
-        score_label = GTK_WIDGET(gtk_builder_get_object(builder, "score_label"));
-        gtk_label_set_text(GTK_LABEL(score_label), fullScoreText);
+        gtk_label_set_text(GTK_LABEL(this->score_label), fullScoreText);
     }
 
-    void set_win(GtkBuilder *builder)
+    void set_win()
     {
-        win_label = GTK_WIDGET(gtk_builder_get_object(builder, "win_fail_label"));
-        gtk_label_set_text(GTK_LABEL(win_label), "You're right!");
+        gtk_label_set_text(GTK_LABEL(this->win_label), "You're right!");
     }
 
-    void set_fail(GtkBuilder *builder)
+    void set_fail()
     {
-        fail_label = GTK_WIDGET(gtk_builder_get_object(builder, "win_fail_label"));
-        gtk_label_set_text(GTK_LABEL(fail_label), "Fail. Try again");
+        gtk_label_set_text(GTK_LABEL(this->fail_label), "Fail. Try again");
     }
 
-    void clear_display(GtkBuilder *builder)
+    void clear_display()
     {
-        entry = GTK_WIDGET(gtk_builder_get_object(builder, "entry"));
         gtk_entry_set_text(GTK_ENTRY(entry), "");
     }
 
-    void play(GtkBuilder* builder)
+    void play()
     {
         //choose(rWord, wHint);
 
@@ -84,7 +95,7 @@ struct Game
         tempScore = length;
 
         jumbling(jumble, length);
-        set_word(builder, jumble);
+        set_word(jumble);
     }
 };
 

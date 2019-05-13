@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    GtkBuilder *builder;
+    //GtkBuilder *builder;
     Game* game;
     GtkWidget *window;
 
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "main_window"));
 
-    game->play(builder);
+    game->play();
 
     g_signal_connect(GTK_WIDGET(gtk_builder_get_object(builder, "entry")), "activate", G_CALLBACK(enter_clicked), NULL);
 
