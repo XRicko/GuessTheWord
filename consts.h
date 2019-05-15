@@ -4,7 +4,7 @@
 #include <iostream>
 #include "fields.h"
 
-const int NUM_WORDS = 10;
+const int NUM_WORDS = 20;
 const std::string WORDS[NUM_WORDS][NUM_FIELDS] =
         {
                 {"wall", "Do you feel you're banging your head against something?"},
@@ -16,7 +16,17 @@ const std::string WORDS[NUM_WORDS][NUM_FIELDS] =
                 {"wallet", "Carry cards and other small belongings"},
                 {"keyboard", "Used for typing"},
                 {"bedroom", "Sleep here"},
-                {"food", "You need it when you're hungry"}
+                {"food", "You need it when you're hungry"},
+                {"patriotic", "Showing love for your country and being proud of it"},
+                {"chair", "A thing you sit on"},
+                {"dog", "He sounds like 'arf-arf'"},
+                {"god", "The creator of the universe"},
+                {"vocabulary", "You can find meaning of some words there"},
+                {"communication", "Act of transferring information with someone"},
+                {"textrovert", "A person who feels more comfortable talking over text"},
+                {"sarcasm", "A sharp, bitter, or cutting expression or remark"},
+                {"windows", "The best operating system"},
+                {"linux", "The best operating system"}
         };
 
 #endif //UNTITLED1_CONSTS_H

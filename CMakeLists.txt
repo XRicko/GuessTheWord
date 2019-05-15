@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(untitled2)
+project(GuessTheWord)
 
 set(CMAKE_CXX_STANDARD 14)
 set( CMAKE_CXX_FLAGS "-Wl,--export-dynamic " )
@@ -13,6 +13,6 @@ LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
 # Add other flags to the compiler
 ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 
-add_executable(untitled2 main.cpp fields.h consts.h headers.h smth.h game.h eventHandlers.h)
+add_executable(GuessTheWord main.cpp fields.h consts.h headers.h game.h eventHandler.h dialogs.h)
 
-TARGET_LINK_LIBRARIES(untitled2 ${GTK3_LIBRARIES})
+TARGET_LINK_LIBRARIES(GuessTheWord ${GTK3_LIBRARIES})

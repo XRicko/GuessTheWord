@@ -4,7 +4,7 @@
 #include "consts.h"
 #include "fields.h"
 #include "game.h"
-#include "smth.h"
-#include "eventHandlers.h"
+#include "eventHandler.h"
+#include "dialogs.h"
 
 #endif //UNTITLED1_HEADERS_H
