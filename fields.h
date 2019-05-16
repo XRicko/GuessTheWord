@@ -2,7 +2,7 @@
 #define UNTITLED1_FIELDS_H
 
 enum fields {WORD,
-    HINT,
+    HINT, 
     NUM_FIELDS};
 
 #endif //UNTITLED1_FIELDS_H
