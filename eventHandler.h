@@ -80,8 +80,26 @@ void stop_button_clicked(GtkButton* btn, gpointer data)
 void next_button_clicked(GtkButton* btn, gpointer data)
 {
     auto* gameInterface = new GameInterface();
+    auto* dialog = new DialogInterface();
 
-    gameInterface->play();
+    score--;
+    if (score > 0)
+        gameInterface->play();
+    else
+    {
+        GtkWidget* lose_dialog;
+
+        lose_dialog = GTK_WIDGET(gtk_builder_get_object(builder, "neutral_dialog"));
+        dialog->set_lose();
+
+        gtk_widget_show_all(lose_dialog);
+
+        if (gtk_dialog_run(GTK_DIALOG(lose_dialog)) == GTK_RESPONSE_OK)
+            gtk_main_quit();
+    }
+
+    delete gameInterface;
+    delete dialog;
 }
 
 #endif //UNTITLED2_EVENTHANDLER_H
