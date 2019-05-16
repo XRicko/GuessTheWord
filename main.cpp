@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     gtk_builder_add_callback_symbols(builder, "enter_clicked", G_CALLBACK(enter_clicked),
                                      "hint_button_clicked", G_CALLBACK(hint_button_clicked),
                                      "stop_button_clicked", G_CALLBACK(stop_button_clicked),
-                                     "next_button_clicked", G_CALLBACK(next_button_clicked), NULL);
+                                     "skip_button_clicked", G_CALLBACK(skip_button_clicked), NULL);
     gtk_builder_connect_signals(builder, NULL);
 
     gtk_widget_show_all(window);

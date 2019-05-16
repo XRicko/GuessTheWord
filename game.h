@@ -96,7 +96,6 @@ struct GameInterface
         jumbling(jumble, length);
 
         set_word(jumble);
-        //set_score();
     }
 };
 

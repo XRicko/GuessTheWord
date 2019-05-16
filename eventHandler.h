@@ -77,12 +77,14 @@ void stop_button_clicked(GtkButton* btn, gpointer data)
     delete dialogInterface;
 }
 
-void next_button_clicked(GtkButton* btn, gpointer data)
+void skip_button_clicked(GtkButton* btn, gpointer data)
 {
     auto* gameInterface = new GameInterface();
     auto* dialog = new DialogInterface();
 
     score--;
+    gameInterface->set_score();
+
     if (score > 0)
         gameInterface->play();
     else
