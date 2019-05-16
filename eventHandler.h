@@ -82,11 +82,14 @@ void skip_button_clicked(GtkButton* btn, gpointer data)
     auto* gameInterface = new GameInterface();
     auto* dialog = new DialogInterface();
 
-    score--;
-    gameInterface->set_score();
-
-    if (score > 0)
+    if (score == 0)
         gameInterface->play();
+    else if (score > 0)
+    {
+        gameInterface->play();
+        score--;
+        gameInterface->set_score();
+    }
     else
     {
         GtkWidget* lose_dialog;
